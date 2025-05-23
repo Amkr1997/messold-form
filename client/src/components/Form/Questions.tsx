@@ -159,15 +159,14 @@ const Questions = () => {
         </div>
 
         <div className="h-1/10 w-full flex items-center justify-center gap-3">
-          <button
-            className="cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-1 hidden sm:block sm:w-fit"
-            onClick={reduceIndexHandler}
-          >
-            <ChevronUp width={32} height={32} color="white" />
-          </button>
           {index <= questionBank.length - 1 && (
             <>
-              {" "}
+              <button
+                className="cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-1 hidden sm:block sm:w-fit"
+                onClick={reduceIndexHandler}
+              >
+                <ChevronUp width={32} height={32} color="white" />
+              </button>{" "}
               <button
                 className="cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-1 block sm:hidden w-fit"
                 onClick={reduceIndexHandler}
