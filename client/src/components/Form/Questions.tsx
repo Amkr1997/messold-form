@@ -66,16 +66,16 @@ const Questions = () => {
   return (
     <>
       <section className="h-screen">
-        <div className="w-full h-9/10 flex items-center justify-center py-4">
+        <div className="w-full h-7/10 sm:h-9/10 flex items-center justify-center py-4">
           {index <= questionBank.length - 1 ? (
             <>
-              <div className="w-full sm:w-2/3 md:w-1/2 px-6 sm:px-0 flex items-start gap-4">
+              <div className="w-full md:w-2/3 px-6 sm:px-0 flex items-start gap-4">
                 <div className="grow-0 flex items-center gap-2">
                   <span className="text-lg text-zinc-500">{index + 1}</span>
                   <ArrowRight size={20} className="text-zinc-500" />
                 </div>
                 <div className="grow-1 w-full flex flex-col items-start">
-                  <h1 className="w-full text-2xl text-zinc-600">
+                  <h1 className="w-full text-2xl sm:text-4xl lg:text-3xl text-zinc-600">
                     {questionBank[index].title}
                   </h1>
                   <div className="py-3 w-full">
@@ -89,23 +89,6 @@ const Questions = () => {
                         onKeyDown={handleKey}
                       />
                     ) : (
-                      // <select
-                      //   id="selectedAns"
-                      //   className="w-full outline-0 border-b-2 focus:border-b-zinc-600 py-3 transition duration-100 text-2xl sm:text-xl text-zinc-500"
-                      //   onChange={(e) => setValue(e.target.value)}
-                      // >
-                      //   {questionBank[index].options?.map((opt, index) => {
-                      //     return (
-                      //       <option
-                      //         key={index}
-                      //         value={opt}
-                      //         className="py-5 bg-gray-300 border-2 hover:bg-gray-200"
-                      //       >
-                      //         {opt}
-                      //       </option>
-                      //     );
-                      //   })}
-                      // </select>
                       <Select onValueChange={(val) => setValue(val)}>
                         <SelectTrigger className="w-full outline-0 border-0 rounded-none border-b-2 focus:border-b-zinc-600 py-3 transition duration-100 text-2xl sm:text-xl text-zinc-500">
                           <SelectValue
@@ -158,7 +141,7 @@ const Questions = () => {
           )}
         </div>
 
-        <div className="h-1/10 w-full flex items-center justify-center gap-3">
+        <div className="h-3/10 sm:h-1/10 w-full flex items-center justify-center gap-3">
           {index <= questionBank.length - 1 && (
             <>
               <button
