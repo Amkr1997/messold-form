@@ -40,7 +40,7 @@ const Questions = () => {
     if (index === questionBank.length - 1) {
       try {
         const res = await axios.post(
-          `http://localhost:3000/api/v1/add/question`,
+          `https://messold-form.vercel.app/api/v1/add/question`,
           { questionsAnswers: updatedAnswers }
         );
 
