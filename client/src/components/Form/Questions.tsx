@@ -165,18 +165,23 @@ const Questions = () => {
           >
             <ChevronUp width={32} height={32} color="white" />
           </button>
-          <button
-            className="cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-1 block sm:hidden w-fit"
-            onClick={reduceIndexHandler}
-          >
-            <ChevronLeft width={32} height={32} color="white" />
-          </button>
-          <Button
-            className="text-2xl cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-5 sm:hidden w-3/5 flex items-center"
-            onClick={indexHandler}
-          >
-            {index === questionBank.length - 1 ? "Submit" : "OK"}
-          </Button>
+          {index <= questionBank.length - 1 && (
+            <>
+              {" "}
+              <button
+                className="cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-1 block sm:hidden w-fit"
+                onClick={reduceIndexHandler}
+              >
+                <ChevronLeft width={32} height={32} color="white" />
+              </button>
+              <Button
+                className="text-2xl cursor-pointer bg-zinc-600 hover:bg-zinc-600 rounded-sm px-4 py-5 sm:hidden w-3/5 flex items-center"
+                onClick={indexHandler}
+              >
+                {index === questionBank.length - 1 ? "Submit" : "OK"}
+              </Button>
+            </>
+          )}
         </div>
       </section>
     </>
