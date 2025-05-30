@@ -9,7 +9,11 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://messold-form-original.vercel.app"],
+  origin: [
+    "http://localhost:5173",
+    "https://messold-form-original.vercel.app",
+    "https://form-frontend-sigma.vercel.app",
+  ],
   credentials: true,
   openSuccessStatus: 200,
 };

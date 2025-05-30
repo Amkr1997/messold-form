@@ -31,6 +31,7 @@ const Questions = () => {
       title: questionBank[index].title,
       answer: value,
     };
+
     const updatedAnswers = [...answers, newAnswer];
     setAnswers(updatedAnswers);
 
