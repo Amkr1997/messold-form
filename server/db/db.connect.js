@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 require("dotenv").config({ path: ".env" });
-const mongo_uri = process.env.MONGO_URI;
 
 const initialisation = async () => {
   try {
-    const connectDB = await mongoose.connect(mongo_uri, {
+    const connectDB = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000, // 5 seconds
