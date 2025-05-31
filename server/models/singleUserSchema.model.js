@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const singleUserSchema = new mongoose.Schema({
+const singleUser = new mongoose.Schema({
   questionsAnswers: [
     {
       title: { type: String },
@@ -9,5 +9,5 @@ const singleUserSchema = new mongoose.Schema({
   ],
 });
 
-const QuestionAnswers = mongoose.model("QuestionAnswers", singleUserSchema);
-module.exports = QuestionAnswers;
+const SingleUser = mongoose.model("SingleUser", singleUser);
+module.exports = SingleUser;

@@ -1,5 +1,5 @@
 const nodeMailer = require("nodemailer");
-const QuestionAnswers = require("../models/singleUserSchema.model");
+const SingleUser = require("../models/singleUserSchema.model");
 require("dotenv").config({ path: ".env" });
 
 // Configure mail
@@ -47,18 +47,19 @@ const addQuestion = async (req, res) => {
   const userData = req.body;
 
   try {
-    const newDetails = new QuestionAnswers(userData);
-    const savedDetails = await newDetails.save();
+    const newUser = await SingleUser.create(userData);
 
-    if (!savedDetails) {
+    // const newDetails = new SingleUser(userData);
+    // const savedDetails = await newDetails.save();
+    // console.log(newUser);
+
+    if (!newUser) {
       return res.status(404).json({ message: "Details cannot get save" });
     }
 
     sendMail(userData); // used for sending mail to user filling form
 
-    return res
-      .status(200)
-      .json({ message: "Details saved", details: savedDetails });
+    return res.status(200).json({ message: "Details saved", details: newUser });
   } catch (error) {
     console.log("Error adding details of user", error);
     return res.status(500).json({ message: "Internal server error" });
@@ -67,7 +68,7 @@ const addQuestion = async (req, res) => {
 
 const getAllQUestions = async (req, res) => {
   try {
-    const allQuestions = await QuestionAnswers.find();
+    const allQuestions = await SingleUser.find();
 
     if (!allQuestions) {
       return res.status(404).json({ message: "Questions not found" });
@@ -86,7 +87,7 @@ const deleteDetails = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const deletedDetails = await QuestionAnswers.findByIdAndDelete(id);
+    const deletedDetails = await SingleUser.findByIdAndDelete(id);
 
     if (!deletedDetails) {
       return res.status(404).json({ message: "Details got deleted" });
